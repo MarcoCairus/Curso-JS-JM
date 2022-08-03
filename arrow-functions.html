@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Esto seria una funcion expresada anonima comun*/
+        const suma=function(a,b){
+            return a+b;
+        }
+        console.log(suma(1,2));
+
+        console.log("--------------------------------------------------")
+
+        /*En caso de que solo haya un parametro, no es necesario utilizar los parentesis "()"*/
+        const saludo= nombre => console.log(`Hola mi nombre es ${nombre}`);
+        saludo("Marco");
+
+        console.log("--------------------------------------------------")
+
+
+        /* Esto es la misma funcion de arriba pero con Arrow Function*/
+        const suma2=(a,b)=> a+b;
+        console.log(suma2(2,2));
+
+        console.log("--------------------------------------------------")
+
+        /* Esto es una Arrow Function con mas de una linea de codigo, en caso de que haya mas de una linea de codigo se debe utilizar las llaves "{}", a diferencia de la funcion de arriba*/
+        const cuenta=()=>{
+            console.log("Primera linea")
+            console.log("Segunda linea")
+            console.log("Tercera linea")
+        }
+        cuenta();
+
+        console.log("--------------------------------------------------")
+
+        /*Ejemplo de Arrow Function con forEach*/            
+        const numeros=[1,2,3,4,5];
+        numeros.forEach((el,i)=>{
+            console.log(`${el} esta en la posicion ${i}`)
+        })
+
+        console.log("--------------------------------------------------")
+        /*Utilizar la funcion anonima comun dentro de un objeto, te habilita a que al utilizar el "this" el contexto que toma es el de su bloque, en este caso el objeto "marco"*/
+        const marco={
+            nombre:"Marco",
+            apellido:"Cairus",
+            edad: 25,
+            saludo:function(){
+                console.log(this);
+            }
+        }
+        marco.saludo();
+
+        console.log("--------------------------------------------------")
+
+        /*Utilizar una Arrow Function en un objeto, hace que al utilizar el "this", tome el contexto del padre del bloque en el que esta, en este caso tomaria el "window"*/
+        const perro={
+            nombre:"Viktor",
+            raza:"San Bernardo",
+            edad: 7,
+            saludo2:()=>console.log(this)
+        }
+        perro.saludo2();
+
+        console.log("--------------------------------------------------")
+
+        /*Forma correcta de de hacer una funcion dentro de un objeto, se obvia la palabra "function", pero tambien los dos puntos":" y el igual y mayor "=>", pasando directamente despues de los parentesis"()" a las llaves"{}"*/
+        const hermana={
+            nombre:"Ornella",
+            apellido:"Cairus",
+            edad:27,
+            saludo3(){console.log(this)}
+        }
+        hermana.saludo3();
+    </script>
+</body>
+</html>

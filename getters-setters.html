@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        class Animal{
+               
+               constructor(nombre,genero){
+                this.nombre=nombre;
+                this.genero=genero;
+                this.tipo=null;
+            }
+
+            //Los setters y getters son metodos especiales que nos permiten establecer y obtener los valores de atributos de nuestras clases.
+
+            get getTipo(){
+                return this.tipo;
+            }
+            set setTipo(tipo){
+                this.tipo=tipo;
+            }
+        }
+
+        const lola=new Animal("lola", "hembra");
+        //en javascript los metosdos get y set son tomados como atributos y no como metodos, por eso no llevan partentesis "()";
+        lola.getTipo;
+        lola.setTipo="Vaca"
+        console.log(lola);
+        ;
+
+    </script>
+</body>
+</html>
