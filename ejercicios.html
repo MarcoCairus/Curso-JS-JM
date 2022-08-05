@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+//1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+
+function ej1Declarada(str=""){
+    if(!str){
+        console.warn("No ingresaste ninguna cadena")
+    }
+    else{
+        console.info(`${str} tiene ${str.length} caracteres`)
+    }
+
+    }
+ej1Declarada();
+ej1Declarada("Hola Mundo");
+
+console.log("-------------------------------------------------------")
+
+//2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+
+const ej1Expresada=(str="")=>
+ (!str)
+    ? console.warn("No ingresaste ninguna cadena") 
+    : console.info(`${str} tiene ${str.length} caracteres`);
+
+ej1Expresada();
+ej1Expresada("Hola Mundo");
+
+console.log("-------------------------------------------------------")
+
+const ej2=(str="",num=undefined)=>
+   (!str) 
+    ? console.warn("No igresaste una cadena de texto")
+    :(num===undefined)
+     ? console.warn("No ingresaste ningun numero para cortar la cadena de texo")
+     : console.info(str.slice(0, num));
+
+ ej2();
+ ej2("Estetoscopio");
+ ej2("Estetoscopio", 4);
+
+ console.log("-------------------------------------------------------")
+
+//3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+
+const ej3=(str="",separador=undefined)=>
+ (!str)
+  ? console.warn("No ingresaste ninguna cadena de texto")
+  : (separador===undefined)
+   ? console.warn("No ingresaste nigun separador")
+   : console.info(str.split(separador));
+ej3("Hola que tal como te va", " ")
+
+console.log("-------------------------------------------------------")
+
+//4) Programa una función que repita un texto X veces, pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo.-->
+
+const ej4=(str="", cantidad=undefined)=>{
+    if(!str) return console.warn("Escribi algo")
+    if(cantidad===undefined) return console.warn("Escribi una cantidad")
+    if(cantidad===0) return console.error("No pongas el numero 0")
+    if(Math.sign(cantidad)===-1) return console.error("No pongas numeros negativos")  
+    for(let i =1; i<=cantidad;i++){
+        console.info(`${str}, ${i}`)
+    }
+}
+ej4("Hola", 4)
+
+//5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+
+
+//6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+
+
+//7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+
+
+//8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+</script>
+</body>
+</html>
