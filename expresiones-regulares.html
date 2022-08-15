@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*Expresiones Regulares:
+            Son una secuencia de caracteres que forma un patron
+            de busqueda, principalmente utilizada para la busqueda de patrones de cadena de caracteres.
+        */
+        let cadena= "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        //el segundo parametro "" son las banderas que sirven para complementar la busqueda, por ejemplo la palabara "g" va a ser que busque todas las opciones en la busqueda, "i" que ignore las mayusculas, en este caso utilizando "ig" combinamos ambas. y en el primer parametro es lo que queremos buscar en esa cadena de texto, en este caso buscamos la palabra "lorem".
+
+        //primera manera de usar una expresion regular
+        let expReg=RegExp("lorem","ig");
+
+        //segunda y mas utilizada forma de utilizar una expresion regular
+        let expReg2= /lorem/ig;
+             
+        //el metodo "test()" te devuelve si la busqueda tiene resultado verdadero o falso.
+        //el metodo "exec()" te da mas detalles del resultado de busqueda.
+        console.log(expReg.test(cadena))   
+        console.log(expReg.exec(cadena))
+        console.log(expReg2.test(cadena))
+        console.log(expReg.exec(cadena))
+                    
+    </script>
+</body>
+</html>

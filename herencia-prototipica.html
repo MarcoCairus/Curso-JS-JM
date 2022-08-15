@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*POO("Programacion Orientada a Objetos")
+          Clases: Modelo a seguir.
+          Objetos: Es una instancia(copia del modelo) de una clase
+          Atributos: Es una craacteristica o propiedad de un objeto(son variables de un objeto);
+          Metodos: Son las acciones que un objeto puede realizar (son funciones dentro de un objeto)*/
+
+
+
+        //Funcion constructora
+        function Animal(nombre, genero){
+            //Atributos
+            this.nombre=nombre;
+            this.genero=genero;
+        }
+        
+        //Metodos agregados al prototipo de la funcion constructora
+        Animal.prototype.capacidadImprescindible=function(){
+            console.log("Respiro porque estoy vivo");
+        }
+        Animal.prototype.saludo=function(){
+            console.log(`Hola mi nombre es ${this.nombre}`);
+        }
+        function Perro(nombre,genero,tamanio){
+            this.super=Animal;
+            this.super(nombre,genero);
+            this.tamanio=tamanio;
+        }
+        Perro.prototype=new Animal();
+        Perro.prototype.constructor=Perro;
+
+        Perro.prototype.capacidadImprescindible=function(){
+            console.log("Respiro porque soy un Perro")
+        }
+        Perro.prototype.ladrar=function(){
+            console.log("Guau Guau");
+        }
+        
+
+        //La palabra reservada "new" crea una nueva instancia(objeto) del tipo que se le diga(String, Number, etc.)
+        const viktor= new Perro("Viktor", "Macho", "Grande");
+        const laika=new Animal("Laika", "Hembra");
+        console.log(viktor);
+        console.log(laika);
+
+        viktor.saludo();
+        viktor.capacidadImprescindible();
+        viktor.ladrar();
+        laika.saludo();
+        laika.capacidadImprescindible(); 
+    </script>
+</body>
+</html>

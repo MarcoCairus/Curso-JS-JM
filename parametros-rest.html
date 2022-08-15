@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function suma(a,b, ...c){
+            let resultado = a+b;
+            c.forEach(function(n){
+                resultado+=n
+            })
+            return resultado;
+        }
+        console.log(suma(1,2,3))
+
+        console.log("----------------------------------------------------")
+
+        const array1 = [1,2,3,4,5];
+        const array2 = [6,7,8,9,10];
+        console.log(array1,array2);
+        console.log("----------------------------------------------------")
+        const mezclaArrays = [...array1, ...array2];
+        console.log(mezclaArrays);
+    </script>
+</body>
+</html>

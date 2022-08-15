@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Cortocircuito OR "||": Cuando el valor en la izquirda de la expresion siempre pueda validar a "true", es el valor que se cargara por defecto.
+
+        //Corttocircuito AND "&&": Cuando el valor en la izquierda de la expresion siempre pueda validar a "false", es el valor que se cargara por defecto.
+
+        //Con los OR "||" si ambos valores son positivos se muestra el de la izquierda
+        console.log("cadena" || "valor de la derecha")
+        console.log(19 || "valor de la derecha")
+        console.log(-2 || "valor de la derecha")
+        console.log(true || "valor de la derecha")
+        console.log([] || "valor de la derecha")
+        //Con los OR "||" si ambos valores son negativos se muestra el de la derecha
+        console.log(false || "valor de la derecha")
+        console.log(null || "valor de la derecha")
+        console.log(undefined|| "valor de la derecha")
+        console.log("" || "valor de la derecha")
+        console.log(0 || "valor de la derecha")
+        
+        console.log("------------------------------------------")
+        //Con los AND "&&" si ambos valores son positivos se muestra el de la derecha.
+        console.log("cadena" && "valor de la derecha")
+        console.log(19 && "valor de la derecha")
+        console.log(-2 &&"valor de la derecha")
+        console.log(true && "valor de la derecha")
+        console.log([] && "valor de la derecha")
+        //Con los AND "&&" si ambos valores son negativos se muestra el de la izquierda.
+        console.log(false && "valor de la derecha")
+        console.log(null &&"valor de la derecha")
+        console.log(undefined&&"valor de la derecha")
+        console.log("" && "valor de la derecha")
+        console.log(0 && "valor de la derecha")
+    </script>
+</body>
+</html>

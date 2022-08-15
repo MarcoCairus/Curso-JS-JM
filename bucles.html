@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let contWhile=0;
+        while(contWhile<10){
+            console.log(contWhile)
+            contWhile++    
+        }
+        console.log("-------------------------------------------------------------")
+        let numerosFor=[1,2,3,4,5,6];
+        for(i=0; i<numerosFor.length; i++){
+            console.log(numerosFor[i]);
+        }
+        console.log("-------------------------------------------------------------")
+        const marco={
+            nombre:"Marco",
+            apellido:"Cairus",
+            edad:25
+        }
+        for(propiedad in marco){
+            console.log(`Key ${propiedad} Value ${marco[propiedad]}`)
+        }
+        console.log("-------------------------------------------------------------")
+        let comidas=["hamburguesa","milanesa","arroz","pizza"];
+        for(elemento of comidas){
+            console.log(elemento);
+        }
+        console.log("-------------------------------------------------------------")
+        let string="Hola que tal";
+        for(caracter of string){
+            console.log(caracter);
+        }
+        console.log("-------------------------------------------------------------")
+
+
+        
+    </script>
+</body>
+</html>
