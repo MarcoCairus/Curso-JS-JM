@@ -78,14 +78,234 @@ ej4("Hola", 4)
 
 //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
+const ej5=(str="")=>
+ (!str)
+  ? console.warn("Ingresa una cadena de texto")
+  : console.info(str.split("").reverse().join(""));
+ej5("Hola Mundo");
 
 //6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
+const ej6=(str="",palabra="")=>{
+    if (!str) return console.warn("No escribiste un texto");
+    if (!palabra) return console.log("No escribiste la palabra a buscar");
+
+    let i=0
+    let contador=0
+
+    while(i!==-1){
+        i=str.indexOf(palabra,i)
+        if(i!==-1){
+         i++
+         contador++;
+        }
+    }
+    return console.info(`la palabra ${palabra} se repite ${contador} veces`);
+}
+ej6("hola mundo hola vida hola a todos","hola")
+
+
+console.log("-------------------------------------------------------")
 
 //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
+const ej7=(str="")=>{
+    if (!str) return console.warn("No escribiste un texto"); 
+    str=str.toLowerCase();
+    let alReves= str.split("").reverse().join("");
+    return (str===alReves)
+     ? console.info(`${str} SI es una palabra Palindroma`)
+     : console.info(`${str} NO es una palabra Palindroma`); 
+}
+ej7("Hola");
+ej7("Salas");
 
+console.log("-------------------------------------------------------")
 //8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const ej8 = (str="", patron="")=>
+ (!str) 
+  ? console.warn("No escribiste un texto")
+  :(!patron)
+   ? console.warn("No escribiste el patron")
+   : console.info(str.replace(new RegExp(patron, "ig"), ""));
+ej8("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz");   
+    
+
+console.log("-------------------------------------------------------")
+//9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+const ej9=()=>console.info(Math.round(Math.random()*100 + 500));
+ej9();
+
+console.log("-------------------------------------------------------")
+//10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+const ej10=(num=0)=>{
+    if (!num) return console.warn("No escribiste un numero")
+    if (typeof num !== "number") return console.error("Solo escribe numeros")
+    num = num.toString();
+    let alReves= num.split("").reverse().join("");
+    return (num===alReves)
+     ? console.info(`${num} Si es un numero Capicua`)
+     : console.info(`${num} No es un numero capicua al reves seria ${alReves}`)
+}
+ej10(212.212);
+console.log("-------------------------------------------------------")
+
+//11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120
+
+const ej11=(num=undefined)=>{
+    if(num===undefined) return console.warn("No escribiste un numero");
+    if(typeof num !== "number") return console.error(`${num} no es un numero`)
+    if(Math.sign() === -1) return console.error(`No puedes utilizar numeros negativos`)
+    if(num===0) return console.error(`No puedes utilizar 0`)
+    let factorial=1;
+    for(i=num; i>1; i--){
+        factorial*=i;
+    }
+    return console.info(`El factorial de ${num} es ${factorial}`);
+}
+ej11(5);
+
+console.log("-------------------------------------------------------")
+
+//12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+const ej12=(num=undefined)=>{
+    if(num===undefined) return console.warn("No escribiste un numero");
+    if(typeof num !== "number") return console.error(`${num} no es un numero`)
+    if(Math.sign() === -1) return console.error(`No puedes utilizar numeros negativos`)
+    if(num===0) return console.error(`No puedes utilizar 0`)
+    if(num===1) return console.error(`No puedes utilizar 1`)
+    let divisible=false;
+    for(i=2; i<num; i++){
+        if((num%i)===0){
+            divisible=true;
+            break;
+        }
+    }
+    return (divisible)
+     ? console.info(`${num} NO es un numero Primo`)
+     : console.info(`${num} SI es un numero Primo`)
+}
+ej12(7);
+
+console.log("-------------------------------------------------------")
+
+//13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+const ej13=(num=undefined)=>{
+ if(num===undefined) return console.warn("No escribiste un numero")
+ if(typeof num !== "number") return console.error("Solo son aceptados los numeros")
+
+ return((num%2)===0)
+  ? console.info(`${num} es Par`)
+  : console.info(`${num} es Impar`)
+} 
+ej13(12);
+
+console.log("-------------------------------------------------------")
+
+//14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+const ej14=(grados=undefined, unidad=undefined)=>{
+    if(grados===undefined) return console.warn("Por favor por pon los grados");
+    if(unidad===undefined) return console.warn("Por favor pon la unidad");
+    if(typeof unidad !== "string") return console.warn("Por favor ingresa una cadena de texto");
+    if(typeof grados !== "number") return console.warn("Por favor ingrese un numero");
+    if(unidad.length !==1 || !/(C|F)/.test(unidad)) return console.error("Dato invalido");
+    if(unidad==="C") return console.info(`${grados}C es = a ${Math.round((grados*9/5)+32)}F`)
+    if(unidad==="F") return console.info(`${grados}F es = a ${Math.round((grados-32)*5/9)}C`)
+}
+ej14(100, "F")
+
+console.log("-------------------------------------------------------")
+
+
+//16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const ej16=(monto=undefined, descuento=0)=>{
+    if(monto===undefined) return console.warn("Por favor ingrese un monto");
+    if(typeof monto !== "number") return console.warn("Por favor ingrese solo numeros");
+    if(monto===0) return console.error("no puedes poner 0");
+    if(Math.sign(monto)===-1) return console.error("Por favor ingrese numeros positivos");
+    if(typeof descuento !== "number") return console.warn("Por favor ingrese solo numeros");
+    if(Math.sign(descuento)===-1) return console.error("Por favor ingrese numeros positivos");
+
+    return console.info(`${monto} - ${descuento}% = ${monto - ((monto*descuento)/100)}`)
+}
+ej16(100,10)
+console.log("-------------------------------------------------------")
+
+//17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020).
+
+const ej17=(fecha=undefined)=>{
+
+   if(fecha === undefined) return console.info("Ingresa una fecha");
+   if(!(fecha instanceof Date)) return console.info("El valor ingresado no es una fecha valida");
+
+   let hoyMenosFecha=new Date().getTime()-fecha.getTime();
+   let aniosEnMilisegundos= 1000*60*60*24*365;
+   let aniosHumanos=Math.floor(hoyMenosFecha/aniosEnMilisegundos);
+
+   return (Math.sign(aniosHumanos) === -1)
+    ? console.info(`faltan ${Math.abs(aniosHumanos)} anios para el ${fecha.getFullYear()}.`)
+    : (Math.sign(aniosHumanos) === 1)
+     ? console.info(`Han pasado ${aniosHumanos} anios, desde ${fecha.getFullYear()}.`)
+     : console.info(`estamos en el anio actual ${fecha.getFullYear()}`);
+}
+ej17();
+ej17({});
+ej17(false);
+ej17(new Date(1997,5,10));
+
+console.log("-------------------------------------------------------")
+
+//18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5.
+
+const ej18=(str="")=>{
+    if(!str) return console.warn("Por favor ingresa una cadena")
+    if(typeof str !== "string") return console.error("Por favor ingrese solo texto")
+}
+
+console.log("-------------------------------------------------------")
+
+//19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero.
+
+console.log("-------------------------------------------------------")
+
+//20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+console.log("-------------------------------------------------------")
+
+//21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25].
+
+console.log("-------------------------------------------------------")
+
+//22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+
+console.log("-------------------------------------------------------")
+
+//23) Programa una función que dado un array de números devuelva un objeto con 2 arreglos en el primero almacena los números pares y en el segundo los impares, pe. miFuncion([1,2,3,4,5,6,7,8,9,0]) devolverá {pares: [2,4,6,8,0], impares: [1,3,5,7,9]}.
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
+
+console.log("-------------------------------------------------------")
 </script>
 </body>
 </html>
