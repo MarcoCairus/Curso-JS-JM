@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const persona={
+            nombre:"",
+            apellido:"",
+            edad:0
+        }
+        const manejador={
+            set(objeto,propiedad,valor){
+                if(Object.keys(objeto).indexOf(propiedad)===-1){
+                   return console.error(`La propiedad ${propiedad} no existe en el objeto persona`)
+                }
+                if((propiedad==="nombre"||propiedad==="apellido") && !(/^[A-Za-z]+$/g.test(valor))){
+                    return console.error(`La propiedad ${propiedad} solo acepta espacios en blanco y letras`)
+                }
+                objeto[propiedad]=valor;
+            }
+            
+        }
+        //"Proxy" no solo hace una copia del objeto, en este caso "persona", sino que existe un vinculo entre ellos, los cambios que se hagan en ambos repercuten en ambos.
+        const marco=new Proxy(persona,manejador);
+        marco.nombre="Marco12";
+        marco.apellido="Cairus";
+        marco.edad=25;
+        marco.hobby="Beach Voley";
+        console.log(marco);
+
+    </script>
+</body>
+</html>

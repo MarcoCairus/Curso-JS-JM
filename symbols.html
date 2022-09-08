@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let id1= Symbol("id1")
+        let id2= Symbol("id2")
+        console.log(id1,id2);
+        console.log(typeof id1,typeof id2);
+
+        const NOMBRE=Symbol("nombre");
+        const SALUDAR=Symbol("saludar");
+        // los "[]" se utilizan para las propiedades que son simbolos, y solo utilizando dichos "[]" vas a poder acceder a esa propiedad.
+        const persona={
+            [NOMBRE]:"Marco"
+        }
+
+        console.log(persona);
+
+        persona.NOMBRE="Marco Cairus";
+        console.log(persona.NOMBRE);
+        console.log(persona[NOMBRE]);
+        // con los "[]"" añadis una nueva propiedad al objeto del tipo "symbol".
+        persona[SALUDAR]=()=>console.log("Hola que tal");
+        console.log(persona)
+        persona[SALUDAR]();
+
+        for(propiedad in persona){
+            console.log(propiedad);
+            // con los [] accedes a los symbols.
+            console.log(persona[propiedad]);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+    "cadena":"Marco",
+    "numero":25,
+    "booleano":true,
+    "arreglo":["correr","programar","cocinar"],
+    "objeto":{
+        "email":"marcairus97@gmail.com",
+        "ig":"marcocairus"
+    },
+    "nulo":null
+}

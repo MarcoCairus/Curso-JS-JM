@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        setTimeout(()=>{
+            console.info("Este mensaje va a aparecer 2 sg mas tarde de que actualice la pagina")
+        }, 2000);
+        
+        setInterval(()=>{
+            console.info("Este mensaje va a aparecer 3 sg mas tarde de que actualice la pagina y se va a repetir indefinidamente")
+        }, 3000);
+
+        //Aca estoy haciendo un reloj que cada 1 sg se actualiza
+        
+        let temporizador=setInterval(()=>{
+            console.info(new Date().toLocaleTimeString())
+        },1000)
+        
+        //Con clearInterval cancelo inmediatamente el intervalo.
+        clearInterval(temporizador);
+    </script>
+</body>
+</html>

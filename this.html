@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log(this);
+        console.log(this===window);
+
+        this.nombre="Contexto Global";
+        console.log(this.nombre)
+
+        function imprimir(){
+            console.log(this.nombre);
+        }
+
+        const obj={
+            nombre:"Contexto Objeto",
+            imprimir:function (){
+                console.log(this.nombre)
+            }
+        }
+        obj.imprimir();
+
+        const obj2={
+            nombre:"Contexto Objeto 2",
+            //imprimir:imprimir
+            imprimir
+            }
+        obj2.imprimir();
+        
+        //en este caso al utilizar una arrow function "()=>" el "this" toma el contexto del bloque padre, en este caso Global.
+        const obj3={
+            nombre:"Contexto Objeto 3",
+            imprimir:()=>{
+                console.log(this.nombre)
+            }
+        }
+        obj3.imprimir();
+
+        function Persona(nombre){
+            this.nombre=nombre;
+            //return console.log(this.nombre)
+
+            //en este caso "this" retorna "Contexto Global" porque al retornar una funcion, el "this" dentro de la misma no encuentra el valor "nombre", por ende lo va a buscar en el contexto global.
+            /*return function(){
+                console.log(this.nombre);
+            }*/
+            //en este caso al utilizar una arrow function "()=>" el "this" va a buscar en el contexto padre el "nombre", en este caso el padre es el prototipo Persona, por ende se ejecuta "marco".
+            return ()=>console.log(this.nombre);
+        }
+
+        let marco=new Persona("marco");
+        marco();
+    </script>
+</body>
+</html>
